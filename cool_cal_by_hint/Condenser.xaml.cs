@@ -252,65 +252,6 @@ namespace cool_hint
             }
             
         }
-        public void getDataExcel()
-        {
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                IApplication application = excelEngine.Excel;
-                application.DefaultVersion = ExcelVersion.Xlsx;
-                FileStream inputStream = new FileStream("productsSpec.xlsx", FileMode.Open, FileAccess.Read);
-                IWorkbook workbook = application.Workbooks.Open(inputStream);
-                IWorksheet worksheet = workbook.Worksheets[0];
-
-
-                //Export data from worksheet used range to a DataTable
-                DataTable customersTable = worksheet.ExportDataTable(worksheet.UsedRange, ExcelExportDataTableOptions.ColumnNames | ExcelExportDataTableOptions.DetectColumnTypes);
-
-                FileStream stream = new FileStream("Excel-Workbook-To-JSON-as-schema-default.json", FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAsJson(stream);
-
-                /* //Map column headers in worksheet with class properties. 
-                 Dictionary<string, string> mappingProperties = new Dictionary<string, string>();
-                 mappingProperties.Add("Customer ID", "CustId");
-                 mappingProperties.Add("Customer Name", "CustName");
-                 mappingProperties.Add("Customer Age", "CustAge");
-                 mappingProperties.Add("Order ID", "CustOrder.Order_Id");
-                 mappingProperties.Add("Order Price", "CustOrder.Price");
-
-                 List<Customer> nestedClassObjects = worksheet.ExportData<Customer>(1, 1, 10, 5, mappingProperties);
-                 */
-
-                dataPayload.table = customersTable;
-
-                /*//Saving the workbook as stream
-                FileStream file = new FileStream("Output.xlsx", FileMode.Create, FileAccess.ReadWrite);
-                workbook.SaveAs(file);
-                file.Dispose();
-                */
-            }
-            
-            /*//Create an instance of ExcelEngine
-            using (ExcelEngine excelEngine = new ExcelEngine())
-            {
-                string filePath = System.IO.Path.GetFullPath("./products.xlsx");
-
-                //Instantiate the Excel application object
-                IApplication application = excelEngine.Excel;
-
-                //Set the default application version
-                application.DefaultVersion = ExcelVersion.Xlsx;
-
-                //Load the existing Excel workbook into IWorkbook
-                IWorkbook workbook = application.Workbooks.Open(filePath);
-
-                //Get the first worksheet in the workbook into IWorksheet
-                IWorksheet worksheet = workbook.Worksheets[0];
-
-                //Access a cell value from Excel
-                var value = worksheet.Range["A6"].Value;
-            }*/
-
-        }
     }
     public class DataPayload
     {
@@ -325,8 +266,6 @@ namespace cool_hint
         public string refrigerant { get; set; }
         public int ambientTemp { get; set; }
         public int altitude { get; set; }
-        public DataTable table { get; set; }
-
 
         /*public string data {
             get
