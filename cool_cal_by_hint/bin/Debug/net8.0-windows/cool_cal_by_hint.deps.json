@@ -1,0 +1,89 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "cool_cal_by_hint/1.0.0": {
+        "dependencies": {
+          "Syncfusion.XlsIO.Wpf": "26.1.38",
+          "System.Windows.Forms.VisualStudio.15.0": "4.0.0.0"
+        },
+        "runtime": {
+          "cool_cal_by_hint.dll": {}
+        }
+      },
+      "Syncfusion.Compression.Base/26.1.38": {
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Compression.Base.dll": {
+            "assemblyVersion": "26.1.38.0",
+            "fileVersion": "26.1.38.0"
+          }
+        }
+      },
+      "Syncfusion.Licensing/26.1.38": {
+        "runtime": {
+          "lib/net8.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "26.1.38.0",
+            "fileVersion": "26.1.38.0"
+          }
+        }
+      },
+      "Syncfusion.XlsIO.Wpf/26.1.38": {
+        "dependencies": {
+          "Syncfusion.Compression.Base": "26.1.38",
+          "Syncfusion.Licensing": "26.1.38"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.XlsIO.Base.dll": {
+            "assemblyVersion": "26.1.38.0",
+            "fileVersion": "26.1.38.0"
+          }
+        }
+      },
+      "System.Windows.Forms.VisualStudio.15.0/4.0.0.0": {
+        "runtime": {
+          "System.Windows.Forms.VisualStudio.15.0.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "17.0.34901.153"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "cool_cal_by_hint/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Syncfusion.Compression.Base/26.1.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FCWyZa9Ths9SbpDoLIW1jNqa6ixwHU/h177xa1T8e0nUq7HA8bL5z/NO3C9xqyhk6le3se9LmzucgDLPf7IpTA==",
+      "path": "syncfusion.compression.base/26.1.38",
+      "hashPath": "syncfusion.compression.base.26.1.38.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/26.1.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-E+ND41n1HfkJKnWrq8cDL8t9y+YueUFoyIkMzKZpowv8flKrVfmmg3nJ5HXeTtI1/PysoI4PCFmIbzMarO4Axg==",
+      "path": "syncfusion.licensing/26.1.38",
+      "hashPath": "syncfusion.licensing.26.1.38.nupkg.sha512"
+    },
+    "Syncfusion.XlsIO.Wpf/26.1.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XsZzQgJt8uWIfYv11y5DxT8MZns+Yf924Mh7pSQnuX7RpH+zjMYnDQSHX8nebPaqCCOXZ9aJVOZGiOYNKA+BUw==",
+      "path": "syncfusion.xlsio.wpf/26.1.38",
+      "hashPath": "syncfusion.xlsio.wpf.26.1.38.nupkg.sha512"
+    },
+    "System.Windows.Forms.VisualStudio.15.0/4.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

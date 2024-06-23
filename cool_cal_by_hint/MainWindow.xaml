@@ -1,0 +1,25 @@
+﻿<Window x:Class="cool_hint.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:cool_hint"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="bg">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="789*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="evaporator_btn" Grid.Column="1" Content="Evaporator" Height="70" Margin="185,195,0,0" VerticalAlignment="Top" Click="DisplayEvaporator" FontSize="24" FontWeight="Bold" HorizontalAlignment="Left" Width="147"/>
+        <Button x:Name="condenser_btn" Grid.Column="1" Content="Condenser" Margin="0,195,197,0" VerticalAlignment="Top" Height="70" FontSize="24" FontWeight="Bold" Click="DisplayCondenser" HorizontalAlignment="Right" Width="152"/>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="93" Margin="255,71,0,0" VerticalAlignment="Top" Width="261" Source="/logo.jpg"/>
+
+    </Grid>
+</Window>

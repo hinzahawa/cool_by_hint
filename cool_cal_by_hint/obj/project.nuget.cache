@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5eNvn2vJ2xI=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\MUFC_\\source\\repos\\cool_cal_by_hint\\cool_cal_by_hint\\cool_cal_by_hint.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\MUFC_\\.nuget\\packages\\syncfusion.compression.base\\26.1.38\\syncfusion.compression.base.26.1.38.nupkg.sha512",
+    "C:\\Users\\MUFC_\\.nuget\\packages\\syncfusion.licensing\\26.1.38\\syncfusion.licensing.26.1.38.nupkg.sha512",
+    "C:\\Users\\MUFC_\\.nuget\\packages\\syncfusion.xlsio.wpf\\26.1.38\\syncfusion.xlsio.wpf.26.1.38.nupkg.sha512"
+  ],
+  "logs": []
+}
