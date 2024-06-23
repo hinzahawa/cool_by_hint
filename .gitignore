@@ -1,6 +1,8 @@
 .DS_Store
 /dist
 .vs
+/bin
+/obj
 
 # Editor directories and files
 .idea

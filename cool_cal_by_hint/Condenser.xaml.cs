@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using Syncfusion.XlsIO;
 using System.Drawing;
 using System.Data;
+using cool_cal_by_hint.masterData;
 
 
 namespace cool_hint
@@ -40,6 +41,9 @@ namespace cool_hint
         public Condenser()
         {
             InitializeComponent();
+            SpecProducts SpecProducts = new SpecProducts();
+            SpecProducts.Products[] specProductList = SpecProducts.specProductList;
+
             SetDefualtValue();
         }
 
@@ -250,7 +254,9 @@ namespace cool_hint
                 MessageBox.Show("TD Must be between 6 - 16");
                 return;
             }
-            
+
+         
+
         }
     }
     public class DataPayload
