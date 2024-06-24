@@ -24,6 +24,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="bin\Debug\net8.0-windows\spec_products.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="26.1.38" />
   </ItemGroup>
@@ -37,6 +43,12 @@
   <ItemGroup>
     <Resource Include="condenser.jpg" />
     <Resource Include="logo.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="masterData\spec_products.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

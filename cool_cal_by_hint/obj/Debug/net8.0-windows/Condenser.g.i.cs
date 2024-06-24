@@ -286,7 +286,7 @@ namespace cool_hint {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/cool_cal_by_hint;V1.0.0.0;component/condenser.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/cool_cal_by_hint;component/condenser.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Condenser.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

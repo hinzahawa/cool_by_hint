@@ -13,17 +13,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
+using cool_cal_by_hint.masterData;
 
 namespace cool_cal_by_hint
 {
     /// <summary>
     /// Interaction logic for tableProduct.xaml
     /// </summary>
-    public partial class tableProduct : Window
+    public partial class TableProduct : Window
     {
-        public tableProduct()
+        public TableProduct()
         {
             InitializeComponent();
+            productList.ItemsSource = SpecProducts.specProductList ;
         }
 
 

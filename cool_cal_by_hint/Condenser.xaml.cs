@@ -20,6 +20,7 @@ using Syncfusion.XlsIO;
 using System.Drawing;
 using System.Data;
 using cool_cal_by_hint.masterData;
+using cool_cal_by_hint;
 
 
 namespace cool_hint
@@ -41,9 +42,6 @@ namespace cool_hint
         public Condenser()
         {
             InitializeComponent();
-            SpecProducts SpecProducts = new SpecProducts();
-            SpecProducts.Products[] specProductList = SpecProducts.specProductList;
-
             SetDefualtValue();
         }
 
@@ -255,7 +253,9 @@ namespace cool_hint
                 return;
             }
 
-         
+
+            TableProduct TableProduct = new TableProduct();
+            TableProduct.Show();
 
         }
     }

@@ -21,9 +21,7 @@ namespace cool_hint
         {
             InitializeComponent();
             // System.Windows.Application.Current.Shutdown();
-            SpecProducts SpecProducts = new SpecProducts();
             SpecProducts.initData();
-            
         }
         private void DisplayEvaporator(object sender, RoutedEventArgs e)
         {
