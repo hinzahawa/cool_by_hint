@@ -25,7 +25,7 @@ namespace cool_cal_by_hint
         public TableProduct()
         {
             InitializeComponent();
-            productList.ItemsSource = SpecProducts.specProductList ;
+            //productList.ItemsSource = SpecProducts.specProductList ;
         }
 
 

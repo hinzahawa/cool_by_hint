@@ -2,17 +2,25 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using static cool_cal_by_hint.masterData.SpecProducts;
 
 namespace cool_cal_by_hint.masterData
 {
     internal static partial class SpecProducts
     {
         public static List<Product> specProductList = new List<Product>();
-        public static void initData()
+        private static List<SpecDeatil> specDetailList = new List<SpecDeatil>();
+        private static List<Capacity> capacityList = new List<Capacity>();
+        /*public static void initData()
         {
             try
             {
@@ -28,6 +36,189 @@ namespace cool_cal_by_hint.masterData
                 // จัดการเมื่อเกิดข้อผิดพลาดในการอ่านไฟล์
                 Console.WriteLine("Error reading the file: " + ex.Message);
             }
+        }*/
+
+
+        public static void initData()
+        {
+            string excelFilePath = "./masterData/spec_products.xlsx";
+            string jsonData = ConvertExcelToJson(excelFilePath);
+            specDetailList = JsonConvert.DeserializeObject<List<SpecDeatil>>(jsonData);
+            jsonData = ConvertExcelToJson(excelFilePath, true);
+            capacityList = JsonConvert.DeserializeObject<List<Capacity>>(jsonData);
+            specProductList = SetProductsValue();
         }
+        public static string ConvertExcelToJson(string excelFilePath, bool isCapacity = false)
+        {
+            List<Dictionary<string, object>> jsonData = new List<Dictionary<string, object>>();
+
+            try
+            {
+                using (SpreadsheetDocument spreadsheetDocument = SpreadsheetDocument.Open(excelFilePath, false))
+                {
+                    WorkbookPart workbookPart = spreadsheetDocument.WorkbookPart;
+                    Sheet sheets = workbookPart.Workbook.Descendants<Sheet>().ElementAtOrDefault(isCapacity ? 1 : 0); // sheet1,2
+                    WorksheetPart worksheetPart = (WorksheetPart)workbookPart.GetPartById(sheets.Id);
+                    //IEnumerable<Sheet> sheets = workbookPart.Workbook.Descendants<Sheet>();
+                    // WorksheetPart worksheetPart = (WorksheetPart)workbookPart.GetPartById(sheets.First().Id);
+
+                    SheetData sheetData = worksheetPart.Worksheet.Elements<SheetData>().First();
+                    IEnumerable<Row> rows = sheetData.Elements<Row>();
+
+                    // Get headers from the first row
+                    Row headerRow = rows.First();
+                    List<string> headers = new List<string>();
+                    foreach (Cell cell in headerRow.Elements<Cell>())
+                    {
+                        headers.Add(GetCellValue(workbookPart, cell));
+                    }
+
+                    // Convert each row (except the first row) to Dictionary
+                    foreach (Row row in rows.Skip(1))
+                    {
+                        Dictionary<string, object> rowDict = new Dictionary<string, object>();
+                        int cellIndex = 0;
+                        foreach (Cell cell in row.Elements<Cell>())
+                        {
+                            if (cellIndex > headers.Count - 1) break;
+                            string header = headers[cellIndex];
+                            string cellValue = GetCellValue(workbookPart, cell);
+                            rowDict[header] = cellValue;
+                            cellIndex++;
+                        }
+                        jsonData.Add(rowDict);
+
+                    }
+                }
+
+                // Serialize to JSON using Newtonsoft.Json
+                return JsonConvert.SerializeObject(jsonData, Formatting.Indented);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return null;
+            }
+        }
+        private static string GetCellValue(WorkbookPart workbookPart, Cell cell)
+        {
+            SharedStringTablePart stringTablePart = workbookPart.SharedStringTablePart;
+            string value = cell.InnerText;
+
+            if (cell.DataType != null && cell.DataType.Value == CellValues.SharedString)
+            {
+                return stringTablePart.SharedStringTable.ChildElements[int.Parse(value)].InnerText;
+            }
+            else
+            {
+                return value;
+            }
+        }
+        private static List<Product> SetProductsValue()
+        {
+
+            List<Product> products = new List<Product>();
+            foreach (var item in specDetailList)
+            {
+                
+                double capacity = double.NaN;
+
+                List<string> allKeys = (from value in specDetailList select value.model).Distinct().ToList();
+
+                foreach (var cap in capacityList)
+                {
+
+                    string modelKey = item.model.Replace("-", ""); //KA123
+                    //Console.WriteLine(cap["KA30027EA"]);
+                    /*if (item.model == cap[modelKey])
+                    {
+
+                    }*/
+                    //bool isModel  = modelKey.Equals(cap[modelKey]);
+
+
+                    /*if ( "18" == cap.air_inlet)
+                    {
+                       Console.WriteLine(modelKey);
+                        //capacity = RoundUp(cap[modelKey]);
+                    }*/
+                }
+                
+                products.Add(new Product
+                {
+                    model = item.model,
+                    refrigerant = item.refrigerant,
+                    capacity = 0.0, //cal
+                    room_temp = 10.0,
+                    evaporation_temp = 0,//cal
+                    superheating = 5.0,
+                    condensation_temp = 45.5,
+                    suction_gas_temp = 20.0,
+                    subcooling = 0.0,
+                    surface = RoundUp(item.surface),
+                    tube_volume = RoundUp(item.tube_volume),
+                    fin_pitch = int.Parse(item.fin_spacing),
+                    test_pressure = int.Parse(item.test_pressure),
+                    air_flow = int.Parse(item.air_flow),
+                    air_throw = int.Parse(item.distance),
+                    fan_diameter = int.Parse(item.diameter),
+                    number_of_fan = int.Parse(item.number_of_fan),
+                    voltage = item.voltage,
+                    fan_speed = int.Parse(item.fan_speed),
+                    power = int.Parse(item.input_power),
+                    current = RoundUp(item.current),
+                    noise_level_in_3m = int.Parse(item.noise_level_in_3m),
+                    tube_material = item.tube_material,
+                    fin_material = item.fin_material,
+                    casing_material = item.casing_material,
+                    inlet_connection = item.liquid,
+                    outlet_connection = item.gas,
+                    dry_weight = RoundUp(item.ta_7),
+                    L = int.Parse(item.L),
+                    E1 = int.Parse(item.E1),
+                    E2 = int.Parse(item.E2),
+                    E3 = int.Parse(item.E3),
+                    E4 = int.Parse(item.E4),
+                    H = int.Parse(item.H),
+                    W = int.Parse(item.W),
+                    B = int.Parse(item.B),
+                    electric_defrost_for_coil = item.coil,
+                    electric_defrost_for_tray = item.water_tray,
+                    drainage = item.drainage,
+                    price = RoundUp(item.price),
+                    total = RoundUp(item.amount)
+                });
+
+            }
+            return products;
+        }
+        private static string AddSeparator(string value)
+        {
+            string newvalue = string.Empty;
+            try
+            {
+                newvalue = Convert.ToInt32(value).ToString("N");
+            }
+            catch
+            {
+                newvalue = value.ToString();
+            }
+            return newvalue;
+        }
+        public static double RoundUp(string input, int places = 2)
+        {
+            double multiplier = Math.Pow(10, Convert.ToDouble(places));
+
+            return Math.Ceiling(Convert.ToDouble(input) * multiplier) / multiplier;
+        }
+
     }
+
 }
+/*
+                   "electric_defrost_for_coil": "3x690",
+                   "electric_defrost_for_tray": "1X690",
+                   "drainage": "G 1\"",
+                   "price": 27000,
+                   "total": 2760
+                   */

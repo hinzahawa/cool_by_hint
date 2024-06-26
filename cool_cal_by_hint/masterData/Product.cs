@@ -15,27 +15,31 @@
             public double subcooling { get; set; }
             public double surface { get; set; }
             public double tube_volume { get; set; }
-            public double fin_pitch { get; set; }
-            public double test_pressure { get; set; }
-            public double air_flow { get; set; }
-            public double air_throw { get; set; }
-            public double fan_diameter { get; set; }
+            public int fin_pitch { get; set; }
+            public int test_pressure { get; set; }
+            public int air_flow { get; set; }
+            public int air_throw { get; set; }
+            public int fan_diameter { get; set; }
             public int number_of_fan { get; set; }
             public string voltage { get; set; }
-            public double fan_speed { get; set; }
-            public double poer { get; set; }
-            public double noise_level_in_3m { get; set; }
+            public int fan_speed { get; set; }
+            public int power { get; set; }
+            public double current { get; set; }
+            public int noise_level_in_3m { get; set; }
             public string tube_material { get; set; }
             public string fin_material { get; set; }
             public string casing_material { get; set; }
             public string inlet_connection { get; set; }
             public string outlet_connection { get; set; }
             public double dry_weight { get; set; }
-            public double L { get; set; }
-            public double E1 { get; set; }
-            public double H { get; set; }
-            public double W { get; set; }
-            public double B { get; set; }
+            public int L { get; set; }
+            public int E1 { get; set; }
+            public int E2 { get; set; }
+            public int E3 { get; set; }
+            public int E4 { get; set; }
+            public int H { get; set; }
+            public int W { get; set; }
+            public int B { get; set; }
             public string electric_defrost_for_coil { get; set; }
             public string electric_defrost_for_tray { get; set; }
             public string drainage { get; set; }

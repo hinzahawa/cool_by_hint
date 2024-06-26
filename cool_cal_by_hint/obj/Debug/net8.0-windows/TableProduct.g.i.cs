@@ -61,7 +61,7 @@ namespace cool_cal_by_hint {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/cool_cal_by_hint;V1.0.0.0;component/tableproduct.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/cool_cal_by_hint;component/tableproduct.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\TableProduct.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

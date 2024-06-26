@@ -33,3 +33,8 @@ C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\obj\Debug\net8.0-w
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\masterData\spec_products.json
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\bin\Debug\net8.0-windows\spec_products.json
+C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\masterData\spec_products.xlsx
+C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\Microsoft.Office.Interop.Excel.dll
+C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\office.dll
+C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.dll
+C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Debug\net8.0-windows\DocumentFormat.OpenXml.Framework.dll

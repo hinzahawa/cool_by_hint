@@ -1,4 +1,5 @@
-﻿using cool_cal_by_hint.masterData;
+﻿using cool_cal_by_hint;
+using cool_cal_by_hint.masterData;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,6 +23,7 @@ namespace cool_hint
             InitializeComponent();
             // System.Windows.Application.Current.Shutdown();
             SpecProducts.initData();
+
         }
         private void DisplayEvaporator(object sender, RoutedEventArgs e)
         {

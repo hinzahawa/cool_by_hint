@@ -115,7 +115,7 @@ namespace cool_hint
             try
             {
                 bool isNumber = Regex.IsMatch(condensing_temp_input.Text, @"^\d+$");
-                if (isNumber != true || int.Parse(condensing_temp_input.Text)<0)
+                if (isNumber != true || int.Parse(condensing_temp_input.Text) < 0)
                 {
                     condensing_temp_input.Text = "";
                     EnabledCalButton(false);
@@ -139,42 +139,42 @@ namespace cool_hint
         }
         private void powerOnchange(object sender, RoutedEventArgs e)
         {
-             try
-             {
-                 dataPayload.power = powerList[selected_power.SelectedIndex];
-             }
-             catch (Exception )
-             {
-                 dataPayload.power = powerList[0];
-                 selected_power.SelectedIndex = 0;
-             }
-            
+            try
+            {
+                dataPayload.power = powerList[selected_power.SelectedIndex];
+            }
+            catch (Exception)
+            {
+                dataPayload.power = powerList[0];
+                selected_power.SelectedIndex = 0;
+            }
+
         }
 
         private void finMaterialOnchange(object sender, SelectionChangedEventArgs e)
         {
-             try
-             {
-                 dataPayload.finMaterial = finMaterailList[selected_fin.SelectedIndex];
-             }
-             catch (Exception )
-             {
-                 dataPayload.finMaterial = finMaterailList[0];
-                 selected_fin.SelectedIndex = 0;
-             }
+            try
+            {
+                dataPayload.finMaterial = finMaterailList[selected_fin.SelectedIndex];
+            }
+            catch (Exception)
+            {
+                dataPayload.finMaterial = finMaterailList[0];
+                selected_fin.SelectedIndex = 0;
+            }
         }
 
         private void selected_refrigerant_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-              try
-              {
-                  dataPayload.refrigerant = refrigerantList[selected_refrigerant.SelectedIndex];
-              }
-              catch (Exception ex)
-              {
-                  dataPayload.refrigerant = refrigerantList[0];
-                  selected_refrigerant.SelectedIndex = 0;
-              }
+            try
+            {
+                dataPayload.refrigerant = refrigerantList[selected_refrigerant.SelectedIndex];
+            }
+            catch (Exception ex)
+            {
+                dataPayload.refrigerant = refrigerantList[0];
+                selected_refrigerant.SelectedIndex = 0;
+            }
         }
 
         private void selected_ambient_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -195,28 +195,28 @@ namespace cool_hint
 
         private void selected_altitude_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             try
-             {
-                 dataPayload.altitude = altitudeList[selected_altitude.SelectedIndex];
-             }
-             catch (Exception ex)
-             {
-                 dataPayload.altitude = altitudeList[0];
-                 selected_altitude.SelectedIndex = 0;
-             }
+            try
+            {
+                dataPayload.altitude = altitudeList[selected_altitude.SelectedIndex];
+            }
+            catch (Exception ex)
+            {
+                dataPayload.altitude = altitudeList[0];
+                selected_altitude.SelectedIndex = 0;
+            }
         }
 
         private void selected_model_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             try
-             {
-                 dataPayload.model = modelList[selected_model.SelectedIndex];
-             }
-             catch (Exception ex)
-             {
-                 dataPayload.model = modelList[0];
-                 selected_model.SelectedIndex = 0;
-             }
+            try
+            {
+                dataPayload.model = modelList[selected_model.SelectedIndex];
+            }
+            catch (Exception ex)
+            {
+                dataPayload.model = modelList[0];
+                selected_model.SelectedIndex = 0;
+            }
         }
 
         private void selected_spec_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -247,7 +247,7 @@ namespace cool_hint
 
         private void calculate_btn_Click(object sender, RoutedEventArgs e)
         {
-            if(dataPayload.TD <  6 || dataPayload.TD > 16)
+            if (dataPayload.TD < 6 || dataPayload.TD > 16)
             {
                 MessageBox.Show("TD Must be between 6 - 16");
                 return;

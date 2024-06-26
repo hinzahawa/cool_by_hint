@@ -30,11 +30,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="26.1.38" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="office">
+      <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\office\15.0.0.0__71e9bce111e9429c\office.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms.VisualStudio.15.0">
       <HintPath>..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\System.Windows.Forms.VisualStudio.15.0.dll</HintPath>
     </Reference>
@@ -46,7 +53,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="masterData\SpecProducts.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="masterData\spec_products.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="masterData\spec_products.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
