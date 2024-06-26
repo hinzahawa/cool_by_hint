@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using static cool_cal_by_hint.masterData.SpecProducts;
@@ -20,6 +21,7 @@ namespace cool_cal_by_hint.masterData
         public static List<Product> specProductList = new List<Product>();
         private static List<SpecDeatil> specDetailList = new List<SpecDeatil>();
         private static List<Capacity> capacityList = new List<Capacity>();
+        private static List<CapacityByModel> capacityByModelList = new List<CapacityByModel>();
         /*public static void initData()
         {
             try
@@ -114,43 +116,21 @@ namespace cool_cal_by_hint.masterData
                 return value;
             }
         }
-        private static List<Product> SetProductsValue()
+        private static List<Product> SetProductsValue(double room_temp=10)
         {
 
             List<Product> products = new List<Product>();
             foreach (var item in specDetailList)
             {
-                
-                double capacity = double.NaN;
-
-                List<string> allKeys = (from value in specDetailList select value.model).Distinct().ToList();
-
-                foreach (var cap in capacityList)
+                string keyModel = item.model.Replace("-", "");
+                Capacity capacity = capacityList.FirstOrDefault((c => Convert.ToDouble(c.air_inlet) == room_temp));
+                products.Add(item: new Product
                 {
-
-                    string modelKey = item.model.Replace("-", ""); //KA123
-                    //Console.WriteLine(cap["KA30027EA"]);
-                    /*if (item.model == cap[modelKey])
-                    {
-
-                    }*/
-                    //bool isModel  = modelKey.Equals(cap[modelKey]);
-
-
-                    /*if ( "18" == cap.air_inlet)
-                    {
-                       Console.WriteLine(modelKey);
-                        //capacity = RoundUp(cap[modelKey]);
-                    }*/
-                }
-                
-                products.Add(new Product
-                {
-                    model = item.model,
+                    model = item.model,//KA-4001-7EB
                     refrigerant = item.refrigerant,
-                    capacity = 0.0, //cal
-                    room_temp = 10.0,
-                    evaporation_temp = 0,//cal
+                    capacity = Convert.ToDouble(capacity.GetType().GetProperty(keyModel).GetValue(capacity, null)), //cal 6.22
+                    room_temp = room_temp,
+                    evaporation_temp = Convert.ToDouble(capacity.evap_temp),//cal
                     superheating = 5.0,
                     condensation_temp = 45.5,
                     suction_gas_temp = 20.0,
@@ -174,14 +154,14 @@ namespace cool_cal_by_hint.masterData
                     inlet_connection = item.liquid,
                     outlet_connection = item.gas,
                     dry_weight = RoundUp(item.ta_7),
-                    L = int.Parse(item.L),
-                    E1 = int.Parse(item.E1),
-                    E2 = int.Parse(item.E2),
-                    E3 = int.Parse(item.E3),
-                    E4 = int.Parse(item.E4),
-                    H = int.Parse(item.H),
-                    W = int.Parse(item.W),
-                    B = int.Parse(item.B),
+                    L = item.L,
+                    E1 = item.E1,
+                    E2 = item.E2,
+                    E3 = item.E3,
+                    E4 = item.E4,
+                    H = item.H,
+                    W = item.W,
+                    B = item.B,
                     electric_defrost_for_coil = item.coil,
                     electric_defrost_for_tray = item.water_tray,
                     drainage = item.drainage,

@@ -1,7 +1,8 @@
 .vs
-./cool_cal_by_hint/bin
-./cool_cal_by_hint/obj
-
+./cool_cal_by_hint/bin/
+./cool_cal_by_hint/obj/
+./obj/
+./bin/
 # Editor directories and files
 .idea
 .vscode

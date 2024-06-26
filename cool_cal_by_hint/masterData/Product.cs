@@ -32,14 +32,14 @@
             public string inlet_connection { get; set; }
             public string outlet_connection { get; set; }
             public double dry_weight { get; set; }
-            public int L { get; set; }
-            public int E1 { get; set; }
-            public int E2 { get; set; }
-            public int E3 { get; set; }
-            public int E4 { get; set; }
-            public int H { get; set; }
-            public int W { get; set; }
-            public int B { get; set; }
+            public string L { get; set; }
+            public string E1 { get; set; }
+            public string E2 { get; set; }
+            public string E3 { get; set; }
+            public string E4 { get; set; }
+            public string H { get; set; }
+            public string W { get; set; }
+            public string B { get; set; }
             public string electric_defrost_for_coil { get; set; }
             public string electric_defrost_for_tray { get; set; }
             public string drainage { get; set; }
