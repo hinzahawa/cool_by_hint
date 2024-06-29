@@ -21,7 +21,8 @@ namespace cool_cal_by_hint.masterData
         public static List<Product> specProductList = new List<Product>();
         private static List<SpecDeatil> specDetailList = new List<SpecDeatil>();
         private static List<Capacity> capacityList = new List<Capacity>();
-        private static List<CapacityByModel> capacityByModelList = new List<CapacityByModel>();
+        private static Product selectedProdcut = new Product();
+
         /*public static void initData()
         {
             try
@@ -116,7 +117,7 @@ namespace cool_cal_by_hint.masterData
                 return value;
             }
         }
-        private static List<Product> SetProductsValue(double room_temp=10)
+        private static List<Product> SetProductsValue(double room_temp=18)
         {
 
             List<Product> products = new List<Product>();
@@ -128,9 +129,9 @@ namespace cool_cal_by_hint.masterData
                 {
                     model = item.model,//KA-4001-7EB
                     refrigerant = item.refrigerant,
-                    capacity = Convert.ToDouble(capacity.GetType().GetProperty(keyModel).GetValue(capacity, null)), //cal 6.22
+                    capacity = Convert.ToDouble(capacity.GetType().GetProperty(keyModel).GetValue(capacity, null)),
                     room_temp = room_temp,
-                    evaporation_temp = Convert.ToDouble(capacity.evap_temp),//cal
+                    evaporation_temp = Convert.ToDouble(capacity.evap_temp),
                     superheating = 5.0,
                     condensation_temp = 45.5,
                     suction_gas_temp = 20.0,
@@ -166,12 +167,31 @@ namespace cool_cal_by_hint.masterData
                     electric_defrost_for_tray = item.water_tray,
                     drainage = item.drainage,
                     price = RoundUp(item.price),
-                    total = RoundUp(item.amount)
+                    total = RoundUp(item.amount),
+                    image_1 = AddImage(int.Parse(item.number_of_fan)),
+                    image_2 = AddImage(int.Parse(item.number_of_fan), true)
                 });
 
             }
             return products;
         }
+        private static string AddImage(int number_of_fan=1,bool isSecondImage=false)
+        {
+            switch (number_of_fan)
+            {
+                case 1:
+                    return isSecondImage? "./assets/fan1_2.jpg" : "./assets/fan1_1.jpg";
+                case 2:
+                    return isSecondImage? "./assets/fan2_2.jpg":"./assets/fan2_1.jpg";
+                case 3:
+                    return isSecondImage ? "./assets/fan3_2.jpg" : "./assets/fan3_1.jpg";
+                case 4:
+                    return isSecondImage ? "./assets/fan4_2.jpg" : "./assets/fan4_1.jpg";
+                default:
+                    return "";
+            }
+        }
+
         private static string AddSeparator(string value)
         {
             string newvalue = string.Empty;

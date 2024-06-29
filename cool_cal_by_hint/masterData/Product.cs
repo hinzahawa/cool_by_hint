@@ -45,6 +45,8 @@
             public string drainage { get; set; }
             public double price { get; set; }
             public double total { get; set; }
+            public string image_1 { get; set; }
+            public string image_2 { get; set; }
 
         }
     }

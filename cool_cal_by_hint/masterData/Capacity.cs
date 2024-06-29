@@ -130,20 +130,5 @@ namespace cool_cal_by_hint.masterData
             [JsonProperty("KA-5004-9EC")]
             public string KA50049EC { get; set; }
         }
-
-        public class CapacityByModel
-        {
-
-            public string model { get; set; }
-            public List<CapacityList> capacity { get; set; }
-
-        }
-        public class CapacityList
-        {
-            public string air_inlet { get; set; }
-            public string evap_temp { get; set; }
-            public string value { get; set; }
-
-        }
     }
 }
