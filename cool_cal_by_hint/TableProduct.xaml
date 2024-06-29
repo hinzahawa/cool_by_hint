@@ -5,22 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cool_cal_by_hint"
         mc:Ignorable="d"
-        Title="tableProduct" Height="450" Width="800">
+        Title="tableProduct" Height="628" Width="800">
+    <Grid HorizontalAlignment="Center" Height="275" Margin="0,296,0,0" VerticalAlignment="Top" Width="800">
+        <DataGrid Name="productList"  HorizontalAlignment="Center"  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding}" Margin="0,25,0,27" SelectionChanged="productList_SelectionChanged" Width="732">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Model" Binding="{Binding model}" />
+                <DataGridTextColumn Header="Capacity" Binding="{Binding capacity}" />
+                <DataGridTextColumn Header="Surface" Binding="{Binding surface}" />
+                <DataGridTextColumn Header="Number of Fan" Binding="{Binding number_of_fan}" />
+                <DataGridTextColumn Header="Air Throw" Binding="{Binding air_throw}" />
+                <DataGridTextColumn Header="Air flow" Binding="{Binding air_flow}" />
+                <DataGridTextColumn Header="Fan Speed" Binding="{Binding fan_speed}" />
+                <DataGridTextColumn Header="FanCurrent" Binding="{Binding current}" />
+                <DataGridTextColumn Header="Finpit" Binding="{Binding fin_pitch}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding price}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 
-    <DataGrid Name="productList" AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding}" Margin="0,225,0,0" SelectionChanged="productList_SelectionChanged">
-        <DataGrid.Columns>
-            <DataGridTextColumn Header="Model" Binding="{Binding model}" />
-            <DataGridTextColumn Header="Capacity" Binding="{Binding capacity}" />
-            <DataGridTextColumn Header="Surface" Binding="{Binding surface}" />
-            <DataGridTextColumn Header="Number of Fan" Binding="{Binding number_of_fan}" />
-            <DataGridTextColumn Header="Air Throw" Binding="{Binding air_throw}" />
-            <DataGridTextColumn Header="Air flow" Binding="{Binding air_flow}" />
-            <DataGridTextColumn Header="Fan Speed" Binding="{Binding fan_speed}" />
-            <DataGridTextColumn Header="FanCurrent" Binding="{Binding current}" />
-            <DataGridTextColumn Header="Finpit" Binding="{Binding fin_pitch}" />
-            <DataGridTextColumn Header="Price" Binding="{Binding price}" />
-     </DataGrid.Columns>
-    </DataGrid>
+
 
 
 </Window>
