@@ -11,7 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace cool_hint
+namespace cool_cal_by_hint
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

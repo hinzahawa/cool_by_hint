@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:cool_hint"
-        xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="cool_hint.Condenser"
+        xmlns:local="clr-namespace:cool_cal_by_hint"
+        xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="cool_cal_by_hint.Condenser"
         mc:Ignorable="d"
         Title="Condenser" Height="480" Width="900">
     <Grid x:Name="bg" Background="#FFFFC183" Height="450" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="900" Margin="0,0,0,14">

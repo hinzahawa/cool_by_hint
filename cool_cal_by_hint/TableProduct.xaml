@@ -12,13 +12,13 @@
             <DataGridTextColumn Header="Model" Binding="{Binding model}" />
             <DataGridTextColumn Header="Capacity" Binding="{Binding capacity}" />
             <DataGridTextColumn Header="Surface" Binding="{Binding surface}" />
-            <DataGridTextColumn Header="Fan Qty" Binding="{Binding fan_qty}" />
-            <DataGridTextColumn Header="Fan Size" Binding="{Binding fan_size}" />
+            <DataGridTextColumn Header="Number of Fan" Binding="{Binding number_of_fan}" />
+            <DataGridTextColumn Header="Air Throw" Binding="{Binding air_throw}" />
             <DataGridTextColumn Header="Air flow" Binding="{Binding air_flow}" />
-            <DataGridTextColumn Header="Motor Speed" Binding="{Binding motor_speed}" />
-            <DataGridTextColumn Header="FanCurrent" Binding="{Binding fan_current}" />
-            <DataGridTextColumn Header="Finpit" Binding="{Binding finpit}" />
-            <DataGridTextColumn Header="Price" Binding="{Binding number}" />
+            <DataGridTextColumn Header="Fan Speed" Binding="{Binding fan_speed}" />
+            <DataGridTextColumn Header="FanCurrent" Binding="{Binding current}" />
+            <DataGridTextColumn Header="Finpit" Binding="{Binding fin_pitch}" />
+            <DataGridTextColumn Header="Price" Binding="{Binding price}" />
      </DataGrid.Columns>
     </DataGrid>
 

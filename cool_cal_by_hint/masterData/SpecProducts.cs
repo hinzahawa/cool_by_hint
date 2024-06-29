@@ -215,10 +215,3 @@ namespace cool_cal_by_hint.masterData
     }
 
 }
-/*
-                   "electric_defrost_for_coil": "3x690",
-                   "electric_defrost_for_tray": "1X690",
-                   "drainage": "G 1\"",
-                   "price": 27000,
-                   "total": 2760
-                   */

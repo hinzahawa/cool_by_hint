@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Collections.ObjectModel;
 using cool_cal_by_hint.masterData;
 
 namespace cool_cal_by_hint
@@ -25,7 +24,7 @@ namespace cool_cal_by_hint
         public TableProduct()
         {
             InitializeComponent();
-            //productList.ItemsSource = SpecProducts.specProductList ;
+            productList.ItemsSource = SpecProducts.specProductList ;
         }
 
 

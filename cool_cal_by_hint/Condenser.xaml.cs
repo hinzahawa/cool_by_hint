@@ -23,7 +23,7 @@ using cool_cal_by_hint.masterData;
 using cool_cal_by_hint;
 
 
-namespace cool_hint
+namespace cool_cal_by_hint
 {
     /// <summary>
     /// Interaction logic for Condenser.xaml
