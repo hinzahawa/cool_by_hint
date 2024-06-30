@@ -5,9 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cool_cal_by_hint"
         mc:Ignorable="d"
-        Title="tableProduct" Height="628" Width="800">
-    <Grid HorizontalAlignment="Center" Height="275" Margin="0,296,0,0" VerticalAlignment="Top" Width="800">
-        <DataGrid Name="productList"  HorizontalAlignment="Center"  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding}" Margin="0,25,0,27" SelectionChanged="productList_SelectionChanged" Width="732">
+        Title="tableProduct" Height="600" Width="900" Background="#FFFFC183">
+    <Grid HorizontalAlignment="Center" Height="573" VerticalAlignment="Top" Width="880">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"></RowDefinition>
+            <RowDefinition Height="300"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0">
+                <Image x:Name="input1" HorizontalAlignment="Left" Height="167"  VerticalAlignment="Top" Width="226" Source="/condenser.jpg"/>
+                <Image x:Name="input2" HorizontalAlignment="Left" Height="168"  VerticalAlignment="Top" Width="197" Source="/assets/fan2-2.jpg"/>
+        
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="1" Background="gray">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Row="0"   Grid.Column="0" x:Name="imageFan1" HorizontalAlignment="Center" Height="167"  VerticalAlignment="Center" Width="200" Source="/assets/fan1-1.jpg"/>
+                <Image Grid.Row="0"   Grid.Column="1" x:Name="imageFan2" HorizontalAlignment="Center" Height="168"  VerticalAlignment="Center" Width="200" Source="/assets/fan1-1.jpg"/>
+                <Button Grid.Row="1"   Grid.Column="0" Width="100" Height="30" Content="SELECT"></Button>
+                <Button Grid.Row="1"   Grid.Column="1" Width="100" Height="30" Content="BACK"></Button>
+            </Grid>
+        </Grid>
+        <DataGrid Grid.Row="1" Name="productList"  HorizontalAlignment="Center"  AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeColumns="True" CanUserAddRows="False" CanUserSortColumns="True" ItemsSource="{Binding}" SelectionChanged="productList_SelectionChanged" Width="800" FontSize="16">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Model" Binding="{Binding model}" />
                 <DataGridTextColumn Header="Capacity" Binding="{Binding capacity}" />
@@ -16,14 +45,11 @@
                 <DataGridTextColumn Header="Air Throw" Binding="{Binding air_throw}" />
                 <DataGridTextColumn Header="Air flow" Binding="{Binding air_flow}" />
                 <DataGridTextColumn Header="Fan Speed" Binding="{Binding fan_speed}" />
-                <DataGridTextColumn Header="FanCurrent" Binding="{Binding current}" />
+                <DataGridTextColumn Header="Fan  Current" Binding="{Binding current}" />
                 <DataGridTextColumn Header="Finpit" Binding="{Binding fin_pitch}" />
                 <DataGridTextColumn Header="Price" Binding="{Binding price}" />
             </DataGrid.Columns>
         </DataGrid>
+
     </Grid>
-
-
-
-
 </Window>

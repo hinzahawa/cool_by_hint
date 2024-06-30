@@ -1,13 +1,6 @@
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\cool_cal_by_hint.exe
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\condenser.jpg
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\evaporatir.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan1-2.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan2-1.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan2-2.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan3-1.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan3-2.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan4-1.jpg
-C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\fan4-2.jpg
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\assets\logo.jpg
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\masterData\spec_products.json
 C:\Users\MUFC_\source\repos\cool_cal_by_hint\cool_cal_by_hint\bin\Release\net8.0-windows\masterData\spec_products.xlsx

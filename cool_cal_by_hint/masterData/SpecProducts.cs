@@ -19,9 +19,9 @@ namespace cool_cal_by_hint.masterData
     internal static partial class SpecProducts
     {
         public static List<Product> specProductList = new List<Product>();
+        public static Product selectedProduct = new Product();
         private static List<SpecDeatil> specDetailList = new List<SpecDeatil>();
         private static List<Capacity> capacityList = new List<Capacity>();
-        private static Product selectedProdcut = new Product();
 
         /*public static void initData()
         {
@@ -168,28 +168,16 @@ namespace cool_cal_by_hint.masterData
                     drainage = item.drainage,
                     price = RoundUp(item.price),
                     total = RoundUp(item.amount),
-                    image_1 = AddImage(int.Parse(item.number_of_fan)),
-                    image_2 = AddImage(int.Parse(item.number_of_fan), true)
+                    image_1 = GetPathImage(item.number_of_fan),
+                    image_2 = GetPathImage(item.number_of_fan,"2")
                 });
 
             }
             return products;
         }
-        private static string AddImage(int number_of_fan=1,bool isSecondImage=false)
+        private static string GetPathImage(string number_of_fan="1", string imageNumber="1")
         {
-            switch (number_of_fan)
-            {
-                case 1:
-                    return isSecondImage? "./assets/fan1_2.jpg" : "./assets/fan1_1.jpg";
-                case 2:
-                    return isSecondImage? "./assets/fan2_2.jpg":"./assets/fan2_1.jpg";
-                case 3:
-                    return isSecondImage ? "./assets/fan3_2.jpg" : "./assets/fan3_1.jpg";
-                case 4:
-                    return isSecondImage ? "./assets/fan4_2.jpg" : "./assets/fan4_1.jpg";
-                default:
-                    return "";
-            }
+            return $"./assets/fan{number_of_fan}-{imageNumber}.jpg";
         }
 
         private static string AddSeparator(string value)
@@ -210,6 +198,14 @@ namespace cool_cal_by_hint.masterData
             double multiplier = Math.Pow(10, Convert.ToDouble(places));
 
             return Math.Ceiling(Convert.ToDouble(input) * multiplier) / multiplier;
+        }
+        public static void SetSelectedProduct(int index=-1)
+        {
+            if (index >-1)
+            {
+            selectedProduct = specProductList[index];
+
+            }
         }
 
     }
